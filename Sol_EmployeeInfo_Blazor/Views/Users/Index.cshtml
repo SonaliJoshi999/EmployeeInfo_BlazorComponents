@@ -1,0 +1,68 @@
+﻿@using Sol_EmployeeInfo_Blazor.Components
+
+@{
+    ViewData["Title"] = "Index";
+}
+@model Sol_EmployeeInfo_Blazor.ViewModel.UserViewModel
+
+<h1>Employee Details</h1>
+<form id="frmMain">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="p-2 m-1">
+                    @await Html.PartialAsync("~/Views/Users/PartialViews/_SearchBar.cshtml", Model)
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="p-2">
+                    @(
+                        await Html.RenderComponentAsync<UserDetailComponent>(RenderMode.ServerPrerendered, new { ListUserModel = Model.UsersList })
+                    )
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#SearchMessage").hide();
+            @if (ViewBag.JavascriptFunction != null)
+            {
+                @Html.Raw(ViewBag.JavascriptFunction);
+            }
+        });
+
+
+        function ShowSearchMessage(displayMessage) {
+            //alert(displayMessage);
+            if (displayMessage=='1')
+                $("#SearchMessage").show();
+            else
+                $("#SearchMessage").hide();
+        };
+
+        function SearchAction(clicked) {
+            var id = clicked;
+            //alert(id);
+            if (id === 'btnSearch') {
+                 $("#frmMain").attr("method","GET");
+                 $("#frmMain").attr("action", '@Url.Action("OnSearch", "Users")');
+                }
+                else if (id === 'btnRefresh') {
+                $("#frmMain").attr("method","GET");
+                $("#frmMain").attr("action", '@Url.Action("Index", "Users")');
+                $("#txtSearch").val("");
+                $("#SearchMessage").hide();
+                }
+
+                $("#frmMain").submit();
+                };
+    </script>
+
+
+}

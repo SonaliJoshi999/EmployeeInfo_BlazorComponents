@@ -1,0 +1,21 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Sol_EmployeeInfo_Blazor.ViewModel.UserViewModel
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group">
+                <input type="text" id="txtSearch" class="form-control" placeholder="First Name | Last Name | Designation | Department " aria-label="Recipient's username" aria-describedby="basic-addon2" asp-for="SearchQuery">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" style="background-color:lightseagreen;color:white;font-weight:bold;" id="btnSearch" onclick="SearchAction(this.id);">Search</button>
+                    <button class="btn btn-outline-secondary" style="background-color:lavender;color:lightseagreen;font-weight:bold;" id="btnRefresh" onclick="SearchAction(this.id);">Refresh</button>
+                </div>
+            </div>
+            <br />
+            <div id="SearchMessage" style="height:30px;border-radius:5px;border-style:solid;border-color:lightseagreen;color:salmon;border-width:2px;">
+                <span style="padding-left:20px;padding-bottom:10px;">No result found for this search. </span>
+            </div>
+        </div>
+    </div>
+</div>

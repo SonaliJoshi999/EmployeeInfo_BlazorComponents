@@ -1,0 +1,9 @@
+﻿@using Sol_EmployeeInfo_Blazor.Components
+@model Sol_EmployeeInfo_Blazor.ViewModel.UserViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>User Details</h1>
+@( await Html.RenderComponentAsync<SingleUserDetailComponent>(RenderMode.ServerPrerendered, new { Users = Model.SingleUserDetails }))
