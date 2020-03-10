@@ -13,10 +13,13 @@ namespace Sol_EmployeeInfo_Blazor.Controllers
     public class UsersController : Controller
     {
         #region Declaration
+
         private readonly IUserRepository userRepository = null;
-        #endregion
+
+        #endregion Declaration
 
         #region Property
+
         [BindProperty]
         public UserViewModel UserVM { get; set; }
 
@@ -25,15 +28,18 @@ namespace Sol_EmployeeInfo_Blazor.Controllers
 
         [BindProperty(SupportsGet = true)]
         public string SearchQuery { get; set; }
-        #endregion
+
+        #endregion Property
 
         #region Constructor
+
         public UsersController(IUserRepository userRepository)
         {
             this.userRepository = userRepository;
             this.UserVM = new UserViewModel();
         }
-        #endregion
+
+        #endregion Constructor
 
         public async Task<IActionResult> Index()
         {

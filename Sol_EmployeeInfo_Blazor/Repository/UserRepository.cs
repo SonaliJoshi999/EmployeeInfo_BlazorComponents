@@ -14,13 +14,14 @@ namespace Sol_EmployeeInfo_Blazor.Repository
 
         Task<UserModel> GetSingleUserDetails(int id);
     }
+
     public class UserRepository : IUserRepository
     {
         async Task<UserModel> IUserRepository.GetSingleUserDetails(int id)
         {
             try
             {
-                var singleUserData = await((IUserRepository)this).GetUserDetails();
+                var singleUserData = await ((IUserRepository)this).GetUserDetails();
 
                 return singleUserData
                     ?.AsEnumerable()
@@ -47,7 +48,7 @@ namespace Sol_EmployeeInfo_Blazor.Repository
                     Department = "IT",
                     Age = 35,
                     Address = "Thane",
-                    ImageURL = "Images/KishorImages.jpg"
+                    ImageURL = "/Images/KishorImages.jpg"
                 });
                 userList.Add(new UserModel()
                 {
@@ -58,7 +59,7 @@ namespace Sol_EmployeeInfo_Blazor.Repository
                     Department = "IT",
                     Age = 31,
                     Address = "Thane",
-                    ImageURL = "Images/sonali.jpg"
+                    ImageURL = "/Images/sonali.jpg"
                 });
                 userList.Add(new UserModel()
                 {
@@ -69,7 +70,7 @@ namespace Sol_EmployeeInfo_Blazor.Repository
                     Department = "IT",
                     Age = 27,
                     Address = "Dombivali",
-                    ImageURL = "Images/Ashwini.jpg"
+                    ImageURL = "/Images/Ashwini.jpg"
                 });
                 userList.Add(new UserModel()
                 {
@@ -80,7 +81,7 @@ namespace Sol_EmployeeInfo_Blazor.Repository
                     Department = "IT",
                     Age = 29,
                     Address = "Panvel",
-                    ImageURL = "Images/Swati.jpg"
+                    ImageURL = "/Images/Swati.jpg"
                 });
                 userList.Add(new UserModel()
                 {
@@ -91,7 +92,7 @@ namespace Sol_EmployeeInfo_Blazor.Repository
                     Department = "IT",
                     Age = 30,
                     Address = "Thane",
-                    ImageURL = "Images/Rajashree.jpg"
+                    ImageURL = "/Images/Rajashree.jpg"
                 });
                 userList.Add(new UserModel()
                 {
@@ -113,7 +114,7 @@ namespace Sol_EmployeeInfo_Blazor.Repository
                     Department = "Management",
                     Age = 35,
                     Address = "Dombivali",
-                    ImageURL = "Images/Image1.jpg"
+                    ImageURL = "/Images/Image1.jpg"
                 });
                 userList.Add(new UserModel()
                 {
@@ -124,7 +125,7 @@ namespace Sol_EmployeeInfo_Blazor.Repository
                     Department = "Marketing",
                     Age = 28,
                     Address = "Dombivali",
-                    ImageURL = "Images/sonali1.jpg"
+                    ImageURL = "/Images/sonali1.jpg"
                 }); ;
                 return userList;
             });
@@ -134,7 +135,7 @@ namespace Sol_EmployeeInfo_Blazor.Repository
         {
             try
             {
-                var data = await((IUserRepository)this).GetUserDetails();
+                var data = await ((IUserRepository)this).GetUserDetails();
 
                 return !string.IsNullOrEmpty(searchData) ? data
                     ?.AsEnumerable()
